@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<item type="id" name="multi_pref"/>
+<item type="id" name="b_simple"/>
+<item type="id" name="b_adv"/>
+<item type="id" name="simple"/>
+<item type="id" name="adv"/>
+<item type="id" name="value_style"/>
+<item type="id" name="t_img"/>
+<item type="id" name="t_text"/>
+<item type="id" name="t_simple"/>
+<item type="id" name="t_adv"/>
+<item type="id" name="insertButton"/>
+<item type="id" name="findButton"/>
+<item type="id" name="searchPropertiesButton" />
+<item type="id" name="multi_pref_cat" />
+<item type="id" name="ui_si" />
+<item type="id" name="ui_no" />
+<item type="id" name="prog_conn" />
+<item type="id" name="titleBar" />
+<item type="id" name="value_seek" />
+
+
+<!--  test -->
+<item type="id" name="button1"/>
+<item type="id" name="button2"/>
+<item type="id" name="button3"/>
+</resources>

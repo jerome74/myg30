@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        style="?textLarge"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_text" />
+
+    <ScrollView
+        style="?pageBackground"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                style="?whiteBackground"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <ToggleButton
+                    android:id="@id/insertButton"
+                    style="?button"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/insert"
+                    android:textOff="@string/insert_off"
+                    android:textOn="@string/insert_on" />
+
+                <ToggleButton
+                    android:id="@id/findButton"
+                    style="?button"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/find"
+                    android:textOff="@string/find_off"
+                    android:textOn="@string/find_on" />
+            </LinearLayout>
+
+             <TextView
+        			android:layout_width="fill_parent"
+        			android:layout_height="wrap_content"/>
+              <TextView
+        			android:layout_width="fill_parent"
+        			android:layout_height="wrap_content"/>
+            
+            <LinearLayout
+                style="?whiteBackground"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                 
+                
+                <TextView
+                    android:id="@id/value_style"
+                    style="?listItem"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mygeo_label_select" />
+
+                <View
+                    style="?listDivider"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1sp" />
+
+                <TextView
+                    android:id="@id/value_seek"
+                    style="?listItem"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mygeo_label_distance" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- The buttons at the bottom of the screen. -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            style="?whiteBackground"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal" >
+
+            <ProgressBar
+                android:id="@id/prog_conn"
+                style="?progressbar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true" />
+            
+            <TextView
+                 	android:id="@id/searchPropertiesButton"
+                    style="?listItem"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:text="@string/search_button" />
+        </LinearLayout>
+
+        
+    </LinearLayout>
+
+</LinearLayout>
