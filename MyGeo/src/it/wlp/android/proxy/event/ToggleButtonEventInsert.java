@@ -11,6 +11,7 @@ import it.wlp.android.toast.model.ToastHelper;
 import java.util.Observable;
 import java.util.Observer;
 
+import android.os.Message;
 import android.view.View;
 import android.widget.ToggleButton;
 
@@ -59,5 +60,12 @@ public class ToggleButtonEventInsert implements Observer ,  PreferenceCallBack
 				 }
 			}
 	   };
+
+
+	@Override
+	public void returnServiceResponse(Message msg) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

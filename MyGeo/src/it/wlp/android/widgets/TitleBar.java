@@ -20,6 +20,7 @@ public class TitleBar extends LinearLayout implements OnClickListener {
 	private Button mBackBtn;
 	private Button mPowerBtn;
 	private Activity activity;
+	private String exchangeValue;
 	
 	public TitleBar(Context context) {
 		super(context);
@@ -34,7 +35,7 @@ public class TitleBar extends LinearLayout implements OnClickListener {
 		super.onFinishInflate();
 		
 		mTitleView = (TextView) findViewById(R.id.title_title);
-		mBackBtn = (Button) findViewById(R.id.title_home);
+		mBackBtn = (Button) findViewById(R.id.title_confirm);
 		mPowerBtn = (Button) findViewById(R.id.title_power);
 		
 		mPowerBtn.setOnClickListener(this);
@@ -45,7 +46,7 @@ public class TitleBar extends LinearLayout implements OnClickListener {
 			case R.id.title_power:
 				activity.finish();
 				break;
-			case R.id.title_home:
+			case R.id.title_confirm:
 				activity.finish();
 				break;
 			default:
@@ -69,5 +70,11 @@ public class TitleBar extends LinearLayout implements OnClickListener {
 	}
 	public void setActivity(Activity activity) {
 		this.activity = activity;
+	}
+	public String getExchangeValue() {
+		return exchangeValue;
+	}
+	public void setExchangeValue(String exchangeValue) {
+		this.exchangeValue = exchangeValue;
 	}
 }

@@ -16,6 +16,10 @@ public class SeekBarFragment extends DialogFragment implements SeekBar.OnSeekBar
 	private TitleBar bar;
     private SeekBar mSeekBar;
     private TextView textViewCurrentValue;
+    private String strTextViewCurrentValue;
+	private String selectedValue;
+	private int progress;
+	
     
     private Activity activity;
 
@@ -35,26 +39,39 @@ public class SeekBarFragment extends DialogFragment implements SeekBar.OnSeekBar
 	    bar.setActivity(activity);
 	    mSeekBar.setOnSeekBarChangeListener(this);
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(0));
+        mSeekBar.setProgress(progress);
         return view;
     }
 
     /** {@inheritDoc} */
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) 
     {
+		selectedValue = String.valueOf(progress);
+		
     	if(progress == 1)
-    		textViewCurrentValue.setText("in 1 metro");
-    	else if(progress > 1 &&  progress <= 50)
-    		textViewCurrentValue.setText("in "  + progress + " metri" );
-    	else if(progress > 51 &&  progress <= 60)
-    		textViewCurrentValue.setText("in "  + (progress - 50) + " kilometri" );
-    	else if(progress > 61 &&  progress <= 70)
-    		textViewCurrentValue.setText("in 15 kilometri" );
-    	else if(progress > 71 &&  progress <= 80)
-    		textViewCurrentValue.setText("in 20 kilometri" );
-    	else if(progress > 81 &&  progress <= 90)
-    		textViewCurrentValue.setText("in 25 kilometri" );
-    	else if(progress > 90)
-    		textViewCurrentValue.setText("in 30 kilometri" );
+    	{
+    		strTextViewCurrentValue = new String("in 1 metro");
+    	}
+    	else if(progress > 1 &&  progress <= 50){
+    		strTextViewCurrentValue = new String("in "  + progress + " metri" );
+    	}
+    	else if(progress > 51 &&  progress <= 60){
+    		strTextViewCurrentValue = new String("in "  + (progress - 50) + " kilometri" );
+    	}
+    	else if(progress > 61 &&  progress <= 70){
+    		strTextViewCurrentValue = new String("in 15 kilometri" );
+    	}
+    	else if(progress > 71 &&  progress <= 80){
+    		strTextViewCurrentValue = new String("in 20 kilometri" );
+    	}
+    	else if(progress > 81 &&  progress <= 90){
+    		strTextViewCurrentValue = new String("in 25 kilometri" );
+    	}
+    	else if(progress > 90){
+    		strTextViewCurrentValue = new String("in 30 kilometri" );
+    	}
+    		
+    	textViewCurrentValue.setText(strTextViewCurrentValue);
     }
 
     /** {@inheritDoc} */
@@ -71,6 +88,15 @@ public class SeekBarFragment extends DialogFragment implements SeekBar.OnSeekBar
 		this.activity = activity;
 	}
     
-    
-    
+	public String getSelectedValue() {
+		return selectedValue;
+	}
+	
+	public String getStrTextViewCurrentValue() {
+		return strTextViewCurrentValue;
+	}
+
+	public void setProgress(int progress) {
+		this.progress = progress;
+	}
 }

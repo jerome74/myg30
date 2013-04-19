@@ -124,5 +124,11 @@ public class ConnetionEvent implements Observer ,  PreferenceCallBack
 	    }
 	  return true;
 	}
+
+	@Override
+	public void returnServiceResponse(Message msg) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

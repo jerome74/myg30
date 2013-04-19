@@ -87,4 +87,11 @@ public class NotifyBean
 		preferenceCallBacks.get(idEvent).returnServiceResponse();
 	}
 	
+	public static void  notifyEvent(int idEvent, Message message)
+	{
+		Log.d("############", preferenceCallBacks.toString());
+		Log.d("############", "" +preferenceCallBacks.size());
+		preferenceCallBacks.get(idEvent).returnServiceResponse(message);
+	}
+	
 }

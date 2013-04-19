@@ -1,5 +1,7 @@
 package it.mygeo.project.constants;
 
+import java.util.UUID;
+
 
 public interface UTIL_GEO
 {
@@ -10,7 +12,10 @@ public interface UTIL_GEO
 	
 	final static String MYGEO 															= "My Geo";
 	final static String IS_CONN_SERV 											= "true";
+	final static String DEF_SEEK			 											= UUID.randomUUID().toString();
+	
 	
 	final static int NB_ConnetionEvent 											= 1000;
-	
+	final static int NB_ListElementEvent 											= 1001;
+	final static int NB_SeekBarDistanceEvent 								= 1002;
 }

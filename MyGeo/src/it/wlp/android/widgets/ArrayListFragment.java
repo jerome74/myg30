@@ -3,6 +3,8 @@ package it.wlp.android.widgets;
 import it.mygeo.project.R;
 import android.app.ListFragment;
 import android.content.res.Resources;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +14,11 @@ import android.widget.ListView;
 public class ArrayListFragment extends ListFragment 
 {
 
+	Drawable drawable;
+	View view;
+	String selectedValue;
+	
+	
 	public ArrayListFragment() {
 		// TODO Auto-generated constructor stub
 	}
@@ -26,7 +33,24 @@ public class ArrayListFragment extends ListFragment
     }
 
     @Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
-        Log.i("FragmentList", "Item clicked: " + id);
+    public void onListItemClick(ListView l, View v, int position, long id) 
+    {
+    	selectedValue = (String) getListAdapter().getItem(position);
+    	drawable = v.getBackground();
+    	 v.setBackgroundDrawable(new ColorDrawable(0xff0000a0) );
+    	 
+    	 if(view != null)
+    	 {
+    		 view.setBackgroundDrawable(drawable);
+    	 }
+    	 view = v;
     }
+
+    /**
+     * 
+     * @return
+     */
+	public String getSelectedValue() {
+		return selectedValue;
+	}
 }
