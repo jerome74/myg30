@@ -4,14 +4,14 @@
     <string name="title_text">My G30</string>
     <string name="subtitle_text">my geocalization</string>
     
-    <string name="insert">Insert</string>
-    <string name="insert_on">Inserting</string>
-    <string name="insert_off">Insert</string>
+    <string name="insert">Inserisci</string>
+    <string name="insert_on">Inserisco</string>
+    <string name="insert_off">Inserisci</string>
     <string name="check_insert_on">operazione ricerca\nselezionata</string>
     
-    <string name="find">Find</string>
-    <string name="find_on">Finding</string>
-    <string name="find_off">Find</string>
+    <string name="find">Trova</string>
+    <string name="find_on">Trovo</string>
+    <string name="find_off">Trova</string>
     <string name="check_find_on">operazione inserimento\nselezionata</string>
     
     <string name="mygeo_label_select">scegliere cosa geocalizzare</string>
@@ -19,7 +19,7 @@
 	<string name="info_dialog">Si preferisce la scelta base o avanzata?</string>
 	<string name="simple">Semplice</string>
 	<string name="advance">Avanzata</string>
-	<string name="search_button">Cerca</string>
+	<string name="search_button">Geolocalizzazione</string>
 	<string name="check_search_button">selezionare una modalità</string>
 	
 	<string name="no_function">funzionalità ancora non supportata.</string>
