@@ -32,8 +32,8 @@ public class SeekBarFragment extends DialogFragment implements SeekBar.OnSeekBar
     {
         View view 						= inflater.inflate(R.layout.distance, content, false);
         mSeekBar 						= (SeekBar) view.findViewById(R.id.seekBar);
-        textViewCurrentValue 	= (TextView)view.findViewById(R.id.curentValue);
-        bar 									 = (TitleBar)view.findViewById(R.id.titleBarS);
+        textViewCurrentValue 			= (TextView)view.findViewById(R.id.curentValue);
+        bar 							= (TitleBar)view.findViewById(R.id.titleBarS);
         
 		bar.setTitle(R.string.mygeo_label_distance);
 	    bar.setActivity(activity);

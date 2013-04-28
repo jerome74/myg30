@@ -42,7 +42,7 @@ public class DialogTextView implements DialogElement {
             {
             	IToastHelper iToastHelper = new ToastHelper(context);
             	ToastHelperDomain toastHelperDomain = new ToastHelperDomain(iToastHelper);
-            	toastHelperDomain.createToastMessage(R.string.no_function, R.drawable.stop);
+            	//toastHelperDomain.createToastMessage(R.string.no_function, R.drawable.stop);
             }
         });
         
