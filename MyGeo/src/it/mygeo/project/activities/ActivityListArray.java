@@ -22,7 +22,7 @@ public class ActivityListArray extends Activity {
         setContentView(R.layout.favourite_properties_list);
         TitleBar bar = (TitleBar)findViewById(R.id.titleBar);
         bar.setActivity(this);
-        bar.setTitle(R.string.mygeo_label_select);
+        bar.setTitle(R.string.title_mygeo_label_select);
         
     }
 

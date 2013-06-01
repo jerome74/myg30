@@ -15,7 +15,11 @@
     <string name="check_find_on">insert operation\nselected</string>
     
     <string name="mygeo_label_select">choose what to locate</string>
+    <string name="title_mygeo_label_select">object</string>
     <string name="mygeo_label_distance">indicate the distance to locate</string>
+    <string name="title_mygeo_label_distance">\t\t\t\tdistance\t\t\t\t</string>
+    <string name="title_mygeo_label_g30">geocalize</string>
+    
 	<string name="search_button">geolocation</string>
 	<string name="check_search_button">select a mode</string>
 	

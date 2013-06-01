@@ -1,6 +1,7 @@
 package it.wlp.android.proxy.event;
 
 import it.mygeo.project.R;
+import it.mygeo.project.activities.MapG30Activity;
 import it.mygeo.project.service.external.PreferenceCallBack;
 import it.wlp.android.proxy.domain.ProxyView;
 import it.wlp.android.toast.domain.ToastHelperDomain;
@@ -10,6 +11,7 @@ import it.wlp.android.toast.model.ToastHelper;
 import java.util.Observable;
 import java.util.Observer;
 
+import android.content.Intent;
 import android.os.Message;
 import android.view.View;
 import android.widget.TextView;
@@ -58,6 +60,11 @@ public class ButtonSearchEvent implements Observer ,  PreferenceCallBack
 				 {
 					 toastHelperDomain.createToastMessage(R.string.check_search_button, R.drawable.stop);
 				 }
+				else
+				{
+					Intent intent = new Intent(proxyView.getContext(), MapG30Activity.class);
+					proxyView.getContext().startActivity(intent);
+				}
 				 
 			}
 	   };

@@ -35,7 +35,7 @@ public class SeekBarFragment extends DialogFragment implements SeekBar.OnSeekBar
         textViewCurrentValue 			= (TextView)view.findViewById(R.id.curentValue);
         bar 							= (TitleBar)view.findViewById(R.id.titleBarS);
         
-		bar.setTitle(R.string.mygeo_label_distance);
+		bar.setTitle(R.string.title_mygeo_label_distance);
 	    bar.setActivity(activity);
 	    mSeekBar.setOnSeekBarChangeListener(this);
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(0));
