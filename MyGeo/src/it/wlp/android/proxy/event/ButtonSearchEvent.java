@@ -62,9 +62,19 @@ public class ButtonSearchEvent implements Observer ,  PreferenceCallBack
 				
 				if(!(((ToggleButton)proxyView.getActivity().findViewById(R.id.insertButton)).getText()).equals(proxyView.getActivity().getString(R.string.insert_on))
 					&&	!(((ToggleButton)proxyView.getActivity().findViewById(R.id.findButton)).getText()).equals(proxyView.getActivity().getString(R.string.find_on))	)
-				 {
+				{
 					 toastHelperDomain.createToastMessage(R.string.check_search_button, R.drawable.stop);
-				 }
+				}
+				else if(((TextView)proxyView.getActivity().findViewById(R.id.value_seek)).getText().toString()
+						.indexOf(proxyView.getActivity().getString(R.string.mygeo_label_distance)) != -1)
+				{
+						toastHelperDomain.createToastMessage(R.string.mygeo_label_distance, R.drawable.stop);
+				}
+				else if(((TextView)proxyView.getActivity().findViewById(R.id.value_style)).getText().toString()
+						.indexOf(proxyView.getActivity().getString(R.string.mygeo_label_select)) != -1)
+				{
+						toastHelperDomain.createToastMessage(R.string.mygeo_label_select, R.drawable.stop);
+				}
 				else
 				{
 					Intent intent = new Intent(proxyView.getContext(), MapG30Activity.class);
@@ -73,6 +83,7 @@ public class ButtonSearchEvent implements Observer ,  PreferenceCallBack
 					int range = widthInPixels(distance.toString());
 					
 					intent.putExtra(UTIL_GEO.RANGE, range);
+					intent.putExtra(UTIL_GEO.TYPE_MARKER, ((TextView)proxyView.getActivity().findViewById(R.id.value_style)).getText().toString());
 					
 					proxyView.getContext().startActivity(intent);
 				}

@@ -3,6 +3,8 @@ package it.mygeo.project.activities;
 
 import it.mygeo.project.R;
 import it.mygeo.project.constants.UTIL_GEO;
+import it.wlp.android.map.G30MarkerDragListener;
+import it.wlp.android.map.GetMarker;
 import it.wlp.android.widgets.TitleBar;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -128,47 +130,23 @@ ConnectionCallbacks, OnConnectionFailedListener, LocationListener
 //			    	 marker.setBounds(0, 0, marker.getIntrinsicWidth(),
 //	                            marker.getIntrinsicHeight());
 			    	 
-			    	 createGeofence(myLocation.getLatitude(),myLocation.getLongitude(), 100, "CIRCLE", "GEOFENCE");
+			    	 createGeofence(myLocation.getLatitude(),myLocation.getLongitude());
 			    	 
 		    	} 
 		}
 		
-		private void createGeofence(double latitude, double longitude, int radius,
-				   String geofenceType, String title) {
+		public void createGeofence(double latitude, double longitude) {
 
 				  Marker stopMarker = mMap.addMarker(new MarkerOptions()
-				    .draggable(true)
-				    .position(new LatLng(latitude, longitude))
-				    .title(title)
-				    .icon(BitmapDescriptorFactory
-				      .fromResource(R.drawable.marker)));
+				    						.draggable(true)
+				    						.position(new LatLng(latitude, longitude)));
+				  
+				  String type = getIntent().getStringExtra(UTIL_GEO.TYPE_MARKER);
 
-				  mMap.addCircle(new CircleOptions()
-				    .center(new LatLng(latitude, longitude)).radius(radius)
-				    .fillColor(Color.parseColor("#B2A9F6"))); 
-				 mMap.setOnMarkerDragListener(new OnMarkerDragListener() {
-					
-					 @Override
-					 public void onMarkerDrag(Marker marker) {
-					 }
-					 @Override
-					 public void onMarkerDragEnd(Marker marker) {
-					  LatLng dragPosition = marker.getPosition();
-					  double dragLat = dragPosition.latitude;
-					  double dragLong = dragPosition.longitude;
-					  mMap.clear();
-					  createGeofence(dragLat, dragLong, 100, "CIRCLE", "GEOFENCE");
-					  Toast.makeText(
-							  MapG30Activity.this,
-					    "onMarkerDragEnd dragLat :" + dragLat + " dragLong :"
-					      + dragLong, Toast.LENGTH_SHORT).show();
-					  Log.i("info", "on drag end :" + dragLat + " dragLong :" + dragLong);
+				  stopMarker.setIcon(GetMarker.getmarker(type, this));
 
-					 }
-					 @Override
-					 public void onMarkerDragStart(Marker marker) {
-					 }
-				});
+
+				 mMap.setOnMarkerDragListener(new G30MarkerDragListener(this, mMap));
 		}
 				 
 

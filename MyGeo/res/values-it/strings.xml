@@ -7,12 +7,12 @@
     <string name="insert">Inserire</string>
     <string name="insert_on">Inserisco</string>
     <string name="insert_off">Inserire</string>
-    <string name="check_insert_on">inserimento selezionato</string>
+    <string name="check_insert_on">ricerca selezionata</string>
     
     <string name="find">>Ricerca</string>
     <string name="find_on">Ricerco</string>
     <string name="find_off">Ricerca</string>
-    <string name="check_find_on">ricerca selezionata</string>
+    <string name="check_find_on">inserimento selezionato</string>
     
     <string name="mygeo_label_select">scegliere oggetto</string>
     <string name="title_mygeo_label_select">oggetto</string>

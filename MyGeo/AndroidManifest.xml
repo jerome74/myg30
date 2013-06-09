@@ -4,7 +4,7 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
- <uses-sdk android:targetSdkVersion="17"/>
+ <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="16"/>
     
     <permission
     android:name="it.mygeo.project.permission.MAPS_RECEIVE"
@@ -32,7 +32,7 @@
       android:value="AIzaSyCIqUviSPvI2UAntHx8nyKzqLXsbkeIR_M"/>
         
         <activity
-            android:name="it.mygeo.project.activities.SplashActivity"
+            android:name=".activities.SplashActivity"
             android:label="My G30"
             android:theme="@style/Theme.Blue" >
             <intent-filter>
@@ -44,27 +44,27 @@
         
         
        <activity
-             android:name="it.mygeo.project.activities.MapG30Activity"
+             android:name=".activities.MapG30Activity"
              android:theme="@style/NoTitleBarDialog" /> 
         <activity
-             android:name="it.mygeo.project.activities.ActivityListArray"
+             android:name=".activities.ActivityListArray"
              android:theme="@style/NoTitleBarDialog" />
         
          <activity
-             android:name="it.mygeo.project.activities.SeekActivity"
+             android:name=".activities.SeekActivity"
              android:theme="@style/NoTitleBarDialog" />
         
         <activity
-            android:name="it.mygeo.project.activities.MyGeoActivity"
+            android:name=".activities.MyGeoActivity"
            android:theme="@style/Theme.Blue" />
         <activity
-            android:name="it.mygeo.project.activities.StylePreferenceActivity"
+            android:name=".activities.StylePreferenceActivity"
             android:theme="@style/Theme.Blue" />
         
-        <service android:exported="false" android:enabled="true" android:name="it.mygeo.project.service.domain.ConnService"></service>
-        <service android:exported="false" android:enabled="true" android:name="it.mygeo.project.service.ServiceManager"></service>
+        <service android:exported="false" android:enabled="true" android:name=".service.domain.ConnService"></service>
+        <service android:exported="false" android:enabled="true" android:name=".service.ServiceManager"></service>
   		
-        <service android:name="it.mygeo.project.service.domain.CatchToastService" >
+        <service android:name=".service.domain.CatchToastService" >
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
