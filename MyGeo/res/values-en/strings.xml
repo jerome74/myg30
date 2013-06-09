@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My G30</string>
+    <string name="title_text">My G30</string>
+    <string name="subtitle_text">my geocalization</string>
+    
+    <string name="insert">Insert</string>
+    <string name="insert_on">Inserting</string>
+    <string name="insert_off">Insert</string>
+    <string name="check_insert_on">search operation\nselected</string>
+    
+    
+    <string name="find">>Find</string>
+    <string name="find_on">Finding</string>
+    <string name="find_off">Find</string>
+    <string name="check_find_on">insert operation\nselected</string>
+    
+    <string name="mygeo_label_select">choose what to locate</string>
+    <string name="title_mygeo_label_select">object</string>
+    <string name="mygeo_label_distance">indicate the distance to locate</string>
+    <string name="title_mygeo_label_distance">\t\t\t\tdistance\t\t\t\t</string>
+    <string name="title_mygeo_label_g30">geocalize</string>
+    
+	<string name="search_button">geolocation</string>
+	<string name="check_search_button">select a mode</string>
+	
+	
+	<string name="menu_exit">Exit Program</string>
+	<string name="menu_exit_title">Exiting The Program</string>
+	<string name="menu_exit_summary">You really want to quit?</string>
+	
+	<string name="ui_si">Yes</string>
+	<string name="ui_no">No</string>
+	<string name="ui_exit_anyway">Exit Program</string>
+	
+	<string name="press_hard_key">You really want to quit?\n\nWe recommend to quit\nthe program by using\nthe Menu key</string>
+	
+    <string name="wifi">Wifi</string>
+    <string name="tre_g">Mobile 3G</string>
+    <string name="no_net">No Network</string>
+	
+    <string name="ERROR">__ERROR__</string>
+	<string name="WARNIG">__WARING__</string>
+	<string name="DEBUG">__DEBUG__</string>
+	<string name="INFO">__INFO__</string>
+	
+	<string name="LOCK">locking lock</string>
+	
+	<string name="MyGeoActivity">MyGeoActivity</string>
+	<string name="idService">idService</string>
+	<string name="ServiceHandler">ServiceHandler</string>
+	
+	<string name="searchPropertiesButton">searchPropertiesButton</string>
+	<string name="prog_conn">prog_conn</string>
+	<string name="OK">Confirm</string>
+	
+	<string name="mts">meters</string>
+	<string name="Km">kilometer</string>
+	<string name="Kms">kilometers</string>
+	
+</resources>

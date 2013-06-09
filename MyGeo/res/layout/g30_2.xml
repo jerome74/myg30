@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/white_background_bl"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <it.wlp.android.widgets.TitleBar
+            android:id="@+id/titleBar_g30"
+            style="@style/TitleBar_st"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+<com.google.android.gms.maps.MapView android:id="@+id/mapview"
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent" />
+
+
+ <ImageView android:id="@+id/drag"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/marker"
+    android:visibility="gone"
+  />             
+</LinearLayout>

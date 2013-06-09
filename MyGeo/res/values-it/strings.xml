@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My G30</string>
+    <string name="title_text">My G30</string>
+    <string name="subtitle_text">Geocalizzazione</string>
+    
+    <string name="insert">Inserire</string>
+    <string name="insert_on">Inserisco</string>
+    <string name="insert_off">Inserire</string>
+    <string name="check_insert_on">inserimento selezionato</string>
+    
+    <string name="find">>Ricerca</string>
+    <string name="find_on">Ricerco</string>
+    <string name="find_off">Ricerca</string>
+    <string name="check_find_on">ricerca selezionata</string>
+    
+    <string name="mygeo_label_select">scegliere oggetto</string>
+    <string name="title_mygeo_label_select">oggetto</string>
+    <string name="mygeo_label_distance">scegliere distanza</string>
+    <string name="title_mygeo_label_distance">\t\tdistanza\t\t\t</string>
+    <string name="title_mygeo_label_g30">geolocalizzazione</string>
+    
+	<string name="search_button">geolocalizza</string>
+	<string name="check_search_button">seleziona una modalità</string>
+	
+	
+	<string name="menu_exit">Termina programma</string>
+	<string name="menu_exit_title">Termina programma</string>
+	<string name="menu_exit_summary">Si vuole uscire dal programma?</string>
+	
+	<string name="ui_si">Si</string>
+	<string name="ui_no">No</string>
+	<string name="ui_exit_anyway">Uscita</string>
+	
+	<string name="press_hard_key">Si vuole uscire dal programma?\nSi raccomanda di usare\nil tasto Menù</string>
+	
+    <string name="wifi">Wifi</string>
+    <string name="tre_g">Mobile 3G</string>
+    <string name="no_net">No Rete</string>
+	
+    <string name="ERROR">__ERROR__</string>
+	<string name="WARNIG">__WARING__</string>
+	<string name="DEBUG">__DEBUG__</string>
+	<string name="INFO">__INFO__</string>
+	
+	<string name="LOCK">locking lock</string>
+	
+	<string name="MyGeoActivity">MyGeoActivity</string>
+	<string name="idService">idService</string>
+	<string name="ServiceHandler">ServiceHandler</string>
+	
+	<string name="searchPropertiesButton">searchPropertiesButton</string>
+	<string name="prog_conn">prog_conn</string>
+	<string name="OK">Conferma</string>
+
+	<string name="mts">metri</string>
+	<string name="Km">chilometro</string>
+	<string name="Kms">chilometri</string>
+</resources>
