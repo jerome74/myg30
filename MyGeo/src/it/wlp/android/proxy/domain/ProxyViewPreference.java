@@ -1,5 +1,6 @@
 package it.wlp.android.proxy.domain;
 
+import it.mygeo.project.R;
 import it.wlp.android.proxy.event.MultiPreferenceEvent;
 import it.wlp.android.proxy.external.IProxyView;
 
@@ -33,7 +34,7 @@ public class ProxyViewPreference extends Observable implements IProxyView
 
 	public void init() 
 	{
-		addObserver(new MultiPreferenceEvent(preferenceManager.findPreference(activity.getString(it.mygeo.project.R.id.multi_pref))));
+		addObserver(new MultiPreferenceEvent(preferenceManager.findPreference(activity.getString(R.id.multi_pref))));
 
 		setChanged();
 		notifyObservers();

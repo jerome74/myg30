@@ -1,7 +1,12 @@
 package it.wlp.android.proxy.event;
 
+import static it.mygeo.project.constants.UTIL_GEO.POST_LABEL_DIST_KM;
+import static it.mygeo.project.constants.UTIL_GEO.POST_LABEL_DIST_KMS;
+import static it.mygeo.project.constants.UTIL_GEO.POST_LABEL_DIST_METRS;
+import static it.mygeo.project.constants.UTIL_GEO.PRE_LABEL_DIST;
 import it.mygeo.project.R;
 import it.mygeo.project.activities.MapG30Activity;
+import it.mygeo.project.constants.UTIL_GEO;
 import it.mygeo.project.service.external.PreferenceCallBack;
 import it.wlp.android.proxy.domain.ProxyView;
 import it.wlp.android.toast.domain.ToastHelperDomain;
@@ -63,9 +68,49 @@ public class ButtonSearchEvent implements Observer ,  PreferenceCallBack
 				else
 				{
 					Intent intent = new Intent(proxyView.getContext(), MapG30Activity.class);
+					TextView textViewDistance = (TextView)proxyView.getActivity().findViewById(R.id.value_seek);
+					CharSequence distance = textViewDistance.getText();
+					int range = widthInPixels(distance.toString());
+					
+					intent.putExtra(UTIL_GEO.RANGE, range);
+					
 					proxyView.getContext().startActivity(intent);
 				}
 				 
+			}
+			
+			/**
+			 * 
+			 * @param valueWidth
+			 * @return
+			 */
+			
+			private int widthInPixels(String valueWidth)
+			{
+				try 
+				{
+					 if (valueWidth.indexOf(proxyView.getActivity().getString(POST_LABEL_DIST_KM)) != -1)
+					{
+						return Integer.valueOf(1000);
+					}
+					else if (valueWidth.indexOf(proxyView.getActivity().getString(POST_LABEL_DIST_KMS)) != -1)
+					{
+						String value = valueWidth.substring(PRE_LABEL_DIST.length(), valueWidth.indexOf(proxyView.getActivity().getString(POST_LABEL_DIST_KMS)));
+						return ((Integer.valueOf(value.trim())) * 1000);
+					}
+					else if (valueWidth.indexOf(proxyView.getActivity().getString(POST_LABEL_DIST_METRS)) != -1)
+					{
+						String value = valueWidth.substring(PRE_LABEL_DIST.length(), valueWidth.indexOf(proxyView.getActivity().getString(POST_LABEL_DIST_METRS)));
+						return Integer.valueOf(value.trim());
+					}
+					
+				return 0;	
+				} 
+				catch (Exception e) 
+				{
+					e.printStackTrace();
+					return 100;
+				}
 			}
 	   };
 

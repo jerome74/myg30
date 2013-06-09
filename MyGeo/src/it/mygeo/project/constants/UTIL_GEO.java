@@ -1,6 +1,10 @@
 package it.mygeo.project.constants;
 
+import it.mygeo.project.R;
+
 import java.util.UUID;
+
+import android.app.Activity;
 
 
 public interface UTIL_GEO
@@ -13,9 +17,15 @@ public interface UTIL_GEO
 	final static String MYGEO 															= "My Geo";
 	final static String IS_CONN_SERV 											= "true";
 	final static String DEF_SEEK			 											= UUID.randomUUID().toString();
-	
-	
+	final static String RANGE 															= "range";
+	final static String PRE_LABEL_DIST 											= "in ";
+	final static String SPACE				 											= " ";
+	final static int POST_LABEL_DIST_KM									=  R.string.Km;
+	final static int POST_LABEL_DIST_KMS									=  R.string.Kms;
+	final static int POST_LABEL_DIST_METRS 								= R.string.mts;
 	final static int NB_ConnetionEvent 											= 1000;
-	final static int NB_ListElementEvent 											= 1001;
+	final static int NB_ListElementEvent 										= 1001;
 	final static int NB_SeekBarDistanceEvent 								= 1002;
+	
+	
 }

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import static it.mygeo.project.constants.UTIL_GEO.*; 
 
 public class SeekBarFragment extends DialogFragment implements SeekBar.OnSeekBarChangeListener {
 
@@ -48,27 +49,27 @@ public class SeekBarFragment extends DialogFragment implements SeekBar.OnSeekBar
     {
 		selectedValue = String.valueOf(progress);
 		
-    	if(progress == 1)
+    	if(progress <= 25)
     	{
-    		strTextViewCurrentValue = new String("in 1 metro");
+    		strTextViewCurrentValue = new String(PRE_LABEL_DIST.concat("100").concat(SPACE).concat(activity.getString(POST_LABEL_DIST_METRS)));
     	}
-    	else if(progress > 1 &&  progress <= 50){
-    		strTextViewCurrentValue = new String("in "  + progress + " metri" );
+    	else if(progress > 25 &&  progress <= 50){
+    		strTextViewCurrentValue = new String(PRE_LABEL_DIST.concat("250").concat(SPACE).concat(activity.getString(POST_LABEL_DIST_METRS)));
     	}
     	else if(progress > 51 &&  progress <= 60){
-    		strTextViewCurrentValue = new String("in "  + (progress - 50) + " kilometri" );
+    		strTextViewCurrentValue = new String(PRE_LABEL_DIST.concat("500").concat(SPACE).concat(activity.getString(POST_LABEL_DIST_METRS)));
     	}
     	else if(progress > 61 &&  progress <= 70){
-    		strTextViewCurrentValue = new String("in 15 kilometri" );
+    		strTextViewCurrentValue = new String(PRE_LABEL_DIST.concat("1").concat(SPACE).concat(activity.getString(POST_LABEL_DIST_KM)));
     	}
     	else if(progress > 71 &&  progress <= 80){
-    		strTextViewCurrentValue = new String("in 20 kilometri" );
+    		strTextViewCurrentValue = new String(PRE_LABEL_DIST.concat("3").concat(SPACE).concat(activity.getString(POST_LABEL_DIST_KMS)));
     	}
     	else if(progress > 81 &&  progress <= 90){
-    		strTextViewCurrentValue = new String("in 25 kilometri" );
+    		strTextViewCurrentValue = new String(PRE_LABEL_DIST.concat("7").concat(SPACE).concat(activity.getString(POST_LABEL_DIST_KMS)));
     	}
     	else if(progress > 90){
-    		strTextViewCurrentValue = new String("in 30 kilometri" );
+    		strTextViewCurrentValue = new String(PRE_LABEL_DIST.concat("15").concat(SPACE).concat(activity.getString(POST_LABEL_DIST_KMS)));
     	}
     		
     	textViewCurrentValue.setText(strTextViewCurrentValue);
