@@ -26,4 +26,23 @@ public class GetMarker
 			
 			
 	}
+	
+	public static int getIDmarker(String type, Activity activity) 
+	{
+			if (type.equals(activity.getResources().getStringArray(R.array.geo_obj)[0]))
+				return R.drawable.marker_car;
+			else if (type.equals(activity.getResources().getStringArray(R.array.geo_obj)[1]))
+				return R.drawable.marker_home;
+			else if (type.equals(activity.getResources().getStringArray(R.array.geo_obj)[2]))
+				return R.drawable.marker_scooter;
+			else if (type.equals(activity.getResources().getStringArray(R.array.geo_obj)[3]))
+				return R.drawable.marker_gym;
+			else if (type.equals(activity.getResources().getStringArray(R.array.geo_obj)[4]))
+				return R.drawable.marker_kies;
+			else
+				return R.drawable.marker;
+			
+			
+	}
+	
 }

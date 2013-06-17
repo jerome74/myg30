@@ -66,4 +66,10 @@ public class MenuDialog implements DialogElement {
 	{
 		this.activity = activity;
 	}
+
+	@Override
+	public void createDialog(View textView) {
+		// TODO Auto-generated method stub
+		
+	}
 }

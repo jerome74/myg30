@@ -3,16 +3,22 @@ package it.mygeo.project.activities;
 
 import it.mygeo.project.R;
 import it.mygeo.project.constants.UTIL_GEO;
+import it.wlp.android.dialog.element.DialogElement;
+import it.wlp.android.dialog.handler.manage.ManageDialogHandler;
 import it.wlp.android.map.G30MarkerDragListener;
 import it.wlp.android.map.GetMarker;
+import it.wlp.android.toast.domain.ToastHelperDomain;
+import it.wlp.android.toast.model.ToastHelper;
 import it.wlp.android.widgets.TitleBar;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
+import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
-import android.widget.Toast;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient.ConnectionCallbacks;
@@ -22,11 +28,8 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.GoogleMap.OnMarkerDragListener;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -39,6 +42,11 @@ ConnectionCallbacks, OnConnectionFailedListener, LocationListener
 	 private GoogleMap mMap;
 	 private LocationClient mLocationClient;
 	 private Location myLocation;
+	 private ToastHelper iToastHelper;
+	 private ToastHelperDomain toastHelperDomain;
+	 private TextView mTitleView;
+	 private TitleBar titleBar;
+	 
 	 
 	  // These settings are the same as the settings for the map. They will in fact give you updates at
 	  // the maximal rates currently possible.
@@ -54,9 +62,15 @@ ConnectionCallbacks, OnConnectionFailedListener, LocationListener
 	        TitleBar bar = (TitleBar)findViewById(R.id.titleBar_g30);
 	        bar.setActivity(this);
 	        bar.setTitle(R.string.title_mygeo_label_g30);
+	        bar.isGeo();
 	        setUpMapIfNeeded();
 	        setUpLocationClientIfNeeded();
 	        setUpMap();
+	        
+	        iToastHelper 		= new ToastHelper(this);
+			toastHelperDomain 	= new ToastHelperDomain(iToastHelper);
+			mTitleView 			= bar.getmTitleView();
+			titleBar			= bar;
 	    }
 	 
 	 
@@ -130,12 +144,12 @@ ConnectionCallbacks, OnConnectionFailedListener, LocationListener
 //			    	 marker.setBounds(0, 0, marker.getIntrinsicWidth(),
 //	                            marker.getIntrinsicHeight());
 			    	 
-			    	 createGeofence(myLocation.getLatitude(),myLocation.getLongitude());
+			    	 createGeofence(myLocation.getLatitude(),myLocation.getLongitude(), false);
 			    	 
 		    	} 
 		}
 		
-		public void createGeofence(double latitude, double longitude) {
+		public void createGeofence(double latitude, double longitude, boolean openKeyborad) {
 
 				  Marker stopMarker = mMap.addMarker(new MarkerOptions()
 				    						.draggable(true)
@@ -144,9 +158,20 @@ ConnectionCallbacks, OnConnectionFailedListener, LocationListener
 				  String type = getIntent().getStringExtra(UTIL_GEO.TYPE_MARKER);
 
 				  stopMarker.setIcon(GetMarker.getmarker(type, this));
+				  titleBar.setMarket(GetMarker.getIDmarker(type, this));
+				  
 
 
 				 mMap.setOnMarkerDragListener(new G30MarkerDragListener(this, mMap));
+				 
+		if (openKeyborad) {
+
+			ManageDialogHandler dialogHandler = new ManageDialogHandler();
+			DialogElement dialogElement =  dialogHandler.createDialogElement(this, this , UTIL_GEO.SELECT_G30_DESC , mTitleView);
+			
+			
+			dialogElement.getDialog().show();
+		}
 		}
 				 
 

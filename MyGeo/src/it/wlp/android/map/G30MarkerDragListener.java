@@ -37,7 +37,7 @@ public class G30MarkerDragListener implements OnMarkerDragListener
 	  double dragLong = dragPosition.longitude;
 	  mMap.clear();
 	  if(activity instanceof MapG30Activity)
-		((MapG30Activity)activity).createGeofence(dragLat, dragLong);
+		((MapG30Activity)activity).createGeofence(dragLat, dragLong, true);
 
 	 }
 	 @Override

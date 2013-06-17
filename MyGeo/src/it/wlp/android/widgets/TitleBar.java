@@ -2,9 +2,12 @@ package it.wlp.android.widgets;
 
 import it.mygeo.project.R;
 import it.mygeo.project.activities.MyGeoActivity;
+import it.mygeo.project.constants.UTIL_GEO;
+import it.mygeo.project.service.NotifyBean;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Message;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +24,9 @@ public class TitleBar extends LinearLayout implements OnClickListener {
 	private Button mPowerBtn;
 	private Activity activity;
 	private String exchangeValue;
+	private boolean isGeo;
+	private int market;
+	
 	
 	public TitleBar(Context context) {
 		super(context);
@@ -47,6 +53,13 @@ public class TitleBar extends LinearLayout implements OnClickListener {
 				activity.finish();
 				break;
 			case R.id.title_confirm:
+				if (isGeo) 
+				{
+					Message message = new Message();
+					message.obj = mTitleView.getText().toString();
+					message.arg1 = getMarket();
+					NotifyBean.notifyEvent(UTIL_GEO.NB_newGeo, message);
+				}
 				activity.finish();
 				break;
 			default:
@@ -77,4 +90,21 @@ public class TitleBar extends LinearLayout implements OnClickListener {
 	public void setExchangeValue(String exchangeValue) {
 		this.exchangeValue = exchangeValue;
 	}
+	public TextView getmTitleView() {
+		return mTitleView;
+	}
+	public void setmTitleView(TextView mTitleView) {
+		this.mTitleView = mTitleView;
+	}
+	public void isGeo() {
+		isGeo = true;
+	}
+	public int getMarket() {
+		return market;
+	}
+	public void setMarket(int market) {
+		this.market = market;
+	}
+	
+	
 }

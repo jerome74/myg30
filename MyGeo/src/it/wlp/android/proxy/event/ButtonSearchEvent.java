@@ -6,7 +6,9 @@ import static it.mygeo.project.constants.UTIL_GEO.POST_LABEL_DIST_METRS;
 import static it.mygeo.project.constants.UTIL_GEO.PRE_LABEL_DIST;
 import it.mygeo.project.R;
 import it.mygeo.project.activities.MapG30Activity;
+import it.mygeo.project.activities.MyGeoActivity;
 import it.mygeo.project.constants.UTIL_GEO;
+import it.mygeo.project.service.NotifyBean;
 import it.mygeo.project.service.external.PreferenceCallBack;
 import it.wlp.android.proxy.domain.ProxyView;
 import it.wlp.android.toast.domain.ToastHelperDomain;
@@ -52,6 +54,7 @@ public class ButtonSearchEvent implements Observer ,  PreferenceCallBack
 		 
 		iToastHelper 		= new ToastHelper(proxyView.getContext());
 		toastHelperDomain 	= new ToastHelperDomain(iToastHelper);
+		NotifyBean.createEvent(UTIL_GEO.NB_newGeo, (MyGeoActivity)proxyView.getActivity());
 		
 	}
 	

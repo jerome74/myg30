@@ -58,4 +58,8 @@
 	<string name="Km">kilometer</string>
 	<string name="Kms">kilometers</string>
 	
+	<string name="pre_comment_geo">description:</string>
+	<string name="b_ok_geo">ok</string>
+	<string name="b_insert_geo">close</string>
+	
 </resources>

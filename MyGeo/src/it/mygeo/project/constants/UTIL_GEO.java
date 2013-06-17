@@ -13,6 +13,7 @@ public interface UTIL_GEO
 	final static int DIALOG_CATEGORY_TEXT_STYLE_VALUE 					= 1;
 	final static int STYLE_PREFERENCE_ACTIVITY_VALUE  					= 2;
 	final static int SELECT_MENU_EXIT 									= 3;
+	final static int SELECT_G30_DESC 									= 4;
 	
 	final static String MYGEO 											= "My Geo";
 	final static String IS_CONN_SERV 									= "true";
@@ -27,6 +28,7 @@ public interface UTIL_GEO
 	final static int NB_ConnetionEvent 									= 1000;
 	final static int NB_ListElementEvent 								= 1001;
 	final static int NB_SeekBarDistanceEvent 							= 1002;
+	final static int NB_newGeo				 							= 1003;
 	
 	
 	

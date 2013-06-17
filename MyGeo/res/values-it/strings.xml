@@ -56,4 +56,9 @@
 	<string name="mts">metri</string>
 	<string name="Km">chilometro</string>
 	<string name="Kms">chilometri</string>
+	
+	<string name="pre_comment_geo">descrizione:</string>
+	<string name="b_ok_geo">ok</string>
+	<string name="b_insert_geo">chiudi</string>
+	
 </resources>

@@ -11,13 +11,18 @@ public class ToastHelperDomain {
 		this.helper = helper;
 	}
 
-	public void createToastMessage(int itText) 
+	public void createToastMessage(int iText) 
 	{
-		this.helper.createToastMessage(itText);
+		this.helper.createToastMessage(iText);
 	}
 
-	public void createToastMessage(int itText, int iImage) 
+	public void createToastMessage(int iText, int iImage) 
 	{
-		this.helper.createToastMessage(itText, iImage);
+		this.helper.createToastMessage(iText, iImage);
+	}
+	
+	public void createToastMessage(String tText, int iImage) 
+	{
+		this.helper.createToastMessage(tText, iImage);
 	}
 }
