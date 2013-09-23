@@ -32,4 +32,28 @@
     		 	getView().setBackgroundDrawable(getDrawable());
     	 
     	 setView(v);
+    	 
+    	 
+    	 
+    	 LinearLayout hiddenLinearLayout = (LinearLayout)findViewById(R.id.hidden_LinearLayout);
+                    	LinearLayout inner_lL = new LinearLayout(MyGeoActivity.this);
+                    	inner_lL.setOrientation(LinearLayout.HORIZONTAL);
+                    	LinearLayout.LayoutParams vp = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+                    	inner_lL.setLayoutParams(vp);
+                    	
+                    	ImageView imageView = new ImageView(MyGeoActivity.this);
+                    	imageView.setLayoutParams(vp);        
+                    	imageView.setImageResource(((G30Bean)msg.obj).getMarker());        
+                    	inner_lL.addView(imageView); 
+                    	
+        				TextView textView = new TextView(MyGeoActivity.this);
+        				inner_lL.setId(((G30Bean)msg.obj).getObjectId());
+        				textView.setTypeface(null, Typeface.BOLD_ITALIC);
+        				textView.setTextColor(Color.CYAN);
+        				textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,(float)23.0);
+        				textView.setText((CharSequence)((G30Bean)msg.obj).getTitle());
+        				inner_lL.addView(textView); 
+        				
+        				hiddenLinearLayout.addView(inner_lL);
+        				hiddenLinearLayout.setVisibility(hiddenLinearLayout.VISIBLE);
     

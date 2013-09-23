@@ -54,7 +54,7 @@ public class ButtonSearchEvent implements Observer ,  PreferenceCallBack
 		 
 		iToastHelper 		= new ToastHelper(proxyView.getContext());
 		toastHelperDomain 	= new ToastHelperDomain(iToastHelper);
-		NotifyBean.createEvent(UTIL_GEO.NB_newGeo, (MyGeoActivity)proxyView.getActivity());
+		NotifyBean.createEvent(UTIL_GEO.NB_MyGeoActivity, (MyGeoActivity)proxyView.getActivity());
 		
 	}
 	

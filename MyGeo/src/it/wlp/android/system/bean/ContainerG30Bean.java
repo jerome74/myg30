@@ -1,18 +1,18 @@
 package it.wlp.android.system.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.simpleframework.xml.ElementList;
+import org.simpleframework.xml.Root;
+
+@Root
 public class ContainerG30Bean 
 {
-	private List<G30Bean> g30Beans;
+	@ElementList
+	public List<G30Bean> g30Beans =  new ArrayList<G30Bean>();
 
-	public List<G30Bean> getG30Beans() {
-		return g30Beans;
-	}
-
-	public void setG30Beans(List<G30Bean> g30Beans) {
-		this.g30Beans = g30Beans;
-	}
+	
 	
 	
 }

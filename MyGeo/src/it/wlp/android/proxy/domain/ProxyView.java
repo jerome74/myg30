@@ -3,6 +3,7 @@ package it.wlp.android.proxy.domain;
 import it.mygeo.project.R;
 import it.wlp.android.proxy.event.ButtonSearchEvent;
 import it.wlp.android.proxy.event.ConnetionEvent;
+import it.wlp.android.proxy.event.MarkerFileEvent;
 import it.wlp.android.proxy.event.TextViewSeekEvent;
 import it.wlp.android.proxy.event.TextViewSyleEvent;
 import it.wlp.android.proxy.event.ToggleButtonEventFind;
@@ -35,6 +36,7 @@ public class ProxyView extends Observable implements IProxyView
 		addObserver(new ToggleButtonEventInsert(activity.findViewById(R.id.insertButton)));
 		addObserver(new ToggleButtonEventFind(activity.findViewById(R.id.findButton)));
 		addObserver(new ButtonSearchEvent(activity.findViewById(R.id.searchPropertiesButton)));
+		addObserver(new MarkerFileEvent(activity.findViewById(R.id.hidden_LinearLayout)));
 		addObserver(new ConnetionEvent());
 
 		setChanged();

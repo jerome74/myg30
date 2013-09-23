@@ -1,40 +1,89 @@
 package it.wlp.android.system.bean;
 
-public class G30Bean 
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
+
+@Element(name="G30Bean")
+public class G30Bean
 {
-	private Integer ID;
-	private Integer marker;
-	private Long longitude;
-	private Long latitude;
+	@Attribute(required=true)
+	private int id;
+	@Element(required=false)
+	private int marker;
+	@Element(required=false)
+	private String type;
+	@Element(required=false)
+	private double longitude;
+	@Element(required=false)
+	private double latitude;
+	@Element(required=false)
+	private String title;
 	
+	public G30Bean() {
+		// TODO Auto-generated constructor stub
+	}
 	
-	public Integer getID() {
-		return ID;
+	public G30Bean(int id
+								,int marker
+								,double longitude
+								,double latitude
+								,String title
+								,String type) {
+		super();
+		this.id = id;
+		this.marker = marker;
+		this.longitude = longitude;
+		this.latitude = latitude;
+		this.title = title;
+		this.type = type;
+		
 	}
-	public void setID(Integer iD) {
-		ID = iD;
+
+	public int getId() {
+		return id;
 	}
-	public Integer getMarker() {
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getMarker() {
 		return marker;
 	}
-	public void setMarker(Integer marker) {
+
+	public void setMarker(int marker) {
 		this.marker = marker;
 	}
-	public Long getLongitude() {
+
+	public double getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(Long longitude) {
+
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
-	public Long getLatitude() {
+
+	public double getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(Long latitude) {
+
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
-	
-	
-	
-	
 
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 }

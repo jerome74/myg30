@@ -72,4 +72,10 @@ public class MenuDialog implements DialogElement {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void setExtraObj(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
 }

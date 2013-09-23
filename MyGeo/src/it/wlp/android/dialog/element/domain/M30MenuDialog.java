@@ -97,4 +97,10 @@ public class M30MenuDialog implements DialogElement {
             ds.setUnderlineText(false);
         }
     }
+
+	@Override
+	public void setExtraObj(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
 }

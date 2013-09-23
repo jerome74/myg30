@@ -1,6 +1,7 @@
 package it.wlp.android.dialog.handler.manage;
 
 import it.wlp.android.dialog.element.DialogElement;
+import it.wlp.android.dialog.element.domain.DelMarkerDialog;
 import it.wlp.android.dialog.element.domain.DialogTextView;
 import it.wlp.android.dialog.element.domain.M30MenuDialog;
 import it.wlp.android.dialog.element.domain.MenuDialog;
@@ -22,6 +23,9 @@ public class ManageDialogHandler extends DialogHandler {
 			
 		case SELECT_G30_DESC:
 			return new M30MenuDialog();
+			
+		case SELECT_G30_DEL_MARKER:
+			return new DelMarkerDialog();
 
 		default:
 			return null;

@@ -62,4 +62,8 @@
 	<string name="b_ok_geo">ok</string>
 	<string name="b_insert_geo">close</string>
 	
+	<string name="m_no_starage">sorry!,\n\n impossible to save the information, there is no storage mount</string>
+	<string name="geo_position_on">activate access on the position</string>
+	<string name="geo_del_marker" formatted="false">do really want delete \'%1$s\'?</string>
+	
 </resources>

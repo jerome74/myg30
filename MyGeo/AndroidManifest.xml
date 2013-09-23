@@ -29,7 +29,7 @@
         
          <meta-data
       android:name="com.google.android.maps.v2.API_KEY"
-      android:value="AIzaSyCIqUviSPvI2UAntHx8nyKzqLXsbkeIR_M"/>
+      android:value="AIzaSyCqJiKJfYxsQBb2BMcueJ5Z2vlvTG3PWjs"/>
         
         <activity
             android:name=".activities.SplashActivity"

@@ -100,4 +100,10 @@ public class DialogTextView implements DialogElement {
 		
 	}
 
+	@Override
+	public void setExtraObj(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

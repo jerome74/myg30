@@ -61,4 +61,8 @@
 	<string name="b_ok_geo">ok</string>
 	<string name="b_insert_geo">chiudi</string>
 	
+	<string name="m_no_starage">spiacenti!,\n\n impossibile salvare le informazioni, nessun memoria montata</string>
+	<string name="geo_position_on">attivare l\'accesso alla posizione</string>
+	<string name="geo_del_marker" formatted="false">vuoi cancellare \'%1$s\'?</string>
+	
 </resources>

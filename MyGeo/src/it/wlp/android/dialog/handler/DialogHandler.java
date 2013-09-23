@@ -9,8 +9,20 @@ import android.view.View;
 
 public abstract class DialogHandler 
 {
+	public DialogElement createDialogElement(Context context, Activity activity , int id, Object object ) 
+	{
+		Builder builder = new AlertDialog.Builder(context);
+		
+		   DialogElement element = newElement( id );
+		   element.setBuilder( builder );
+		   element.setContext(context);
+		   element.setActivity(activity);
+		   element.setExtraObj(object);
+		   element.createDialog();
+		   return element;
+		}
 
-	public DialogElement createDialogElement(Context context, Activity activity , int id, View view ) 
+	public DialogElement createDialogElement(Context context, Activity activity , int id, View view) 
 	{
 		Builder builder = new AlertDialog.Builder(context);
 		

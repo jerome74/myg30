@@ -8,7 +8,9 @@ import it.wlp.android.dialog.handler.manage.ManageDialogHandler;
 import it.wlp.android.map.G30MarkerDragListener;
 import it.wlp.android.map.GetMarker;
 import it.wlp.android.toast.domain.ToastHelperDomain;
+import it.wlp.android.toast.external.IToastHelper;
 import it.wlp.android.toast.model.ToastHelper;
+import it.wlp.android.util.CheckObj;
 import it.wlp.android.widgets.TitleBar;
 import android.content.Context;
 import android.content.Intent;
@@ -46,6 +48,9 @@ ConnectionCallbacks, OnConnectionFailedListener, LocationListener
 	 private ToastHelperDomain toastHelperDomain;
 	 private TextView mTitleView;
 	 private TitleBar titleBar;
+	 private double latitude;
+	 private double  longitude;
+	 private boolean redefine;
 	 
 	 
 	  // These settings are the same as the settings for the map. They will in fact give you updates at
@@ -63,14 +68,23 @@ ConnectionCallbacks, OnConnectionFailedListener, LocationListener
 	        bar.setActivity(this);
 	        bar.setTitle(R.string.title_mygeo_label_g30);
 	        bar.isGeo();
+	        
+	        if (CheckObj.check(getIntent().getStringExtra(UTIL_GEO.TYPE_MARKER), UTIL_GEO.STRING))
+	        {
+	        	bar.setUpdateG30bean(getIntent().getStringExtra(UTIL_GEO.TYPE_MARKER));
+	        	redefine = true;
+	        }
+	        else
+	        	redefine = false;
+	        	
 	        setUpMapIfNeeded();
 	        setUpLocationClientIfNeeded();
 	        setUpMap();
 	        
-	        iToastHelper 		= new ToastHelper(this);
+	        iToastHelper 				= new ToastHelper(this);
 			toastHelperDomain 	= new ToastHelperDomain(iToastHelper);
-			mTitleView 			= bar.getmTitleView();
-			titleBar			= bar;
+			mTitleView 					= bar.getmTitleView();
+			titleBar						= bar;
 	    }
 	 
 	 
@@ -130,6 +144,16 @@ ConnectionCallbacks, OnConnectionFailedListener, LocationListener
 		    	{
 				 
 				 	myLocation = mLocationClient.getLastLocation();
+				 	
+				 	if(myLocation == null)
+				 	{
+				 		IToastHelper iToastHelper = new ToastHelper(this);
+				 		ToastHelperDomain toastHelperDomain = new ToastHelperDomain(iToastHelper);
+				 		toastHelperDomain.createToastMessage(R.string.geo_position_on, R.drawable.stop);
+				 		startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+				 		return;
+				 	}
+				 		
 				 
 		    		CameraPosition cameraPosition = new CameraPosition.Builder()
 			    	   .target(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))      // Sets the center of the map to Mountain View
@@ -144,7 +168,13 @@ ConnectionCallbacks, OnConnectionFailedListener, LocationListener
 //			    	 marker.setBounds(0, 0, marker.getIntrinsicWidth(),
 //	                            marker.getIntrinsicHeight());
 			    	 
-			    	 createGeofence(myLocation.getLatitude(),myLocation.getLongitude(), false);
+			    	 
+			    	 if(!redefine)
+			    		 createGeofence(myLocation.getLatitude(),myLocation.getLongitude(), false);
+			    	 else
+			    		 createGeofence(titleBar.getG30bean().getLatitude(),titleBar.getG30bean().getLongitude(), false);
+			    	 
+			    	 
 			    	 
 		    	} 
 		}
@@ -158,17 +188,20 @@ ConnectionCallbacks, OnConnectionFailedListener, LocationListener
 				  String type = getIntent().getStringExtra(UTIL_GEO.TYPE_MARKER);
 
 				  stopMarker.setIcon(GetMarker.getmarker(type, this));
-				  titleBar.setMarket(GetMarker.getIDmarker(type, this));
+				  titleBar.setMarker(GetMarker.getIDmarker(type, this));
+				  titleBar.setType(type);
 				  
 
 
 				 mMap.setOnMarkerDragListener(new G30MarkerDragListener(this, mMap));
 				 
-		if (openKeyborad) {
-
+		if (openKeyborad) 
+		{
 			ManageDialogHandler dialogHandler = new ManageDialogHandler();
 			DialogElement dialogElement =  dialogHandler.createDialogElement(this, this , UTIL_GEO.SELECT_G30_DESC , mTitleView);
 			
+			setLatitude(latitude);
+			setLongitude(longitude);
 			
 			dialogElement.getDialog().show();
 		}
@@ -212,5 +245,36 @@ ConnectionCallbacks, OnConnectionFailedListener, LocationListener
 
 				    return zoom;
 			}
+
+
+		@Override
+		protected void onDestroy() {
+			// TODO Auto-generated method stub
+			super.onDestroy();
+		}
+
+
+		public double getLatitude() {
+			return latitude;
+		}
+
+
+		public void setLatitude(double latitude) {
+			this.latitude = latitude;
+		}
+
+
+		public double getLongitude() {
+			return longitude;
+		}
+
+
+		public void setLongitude(double longitude) {
+			this.longitude = longitude;
+		}
+		
+		
+			  
+			  
 	 
 }

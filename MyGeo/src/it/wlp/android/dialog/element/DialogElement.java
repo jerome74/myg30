@@ -15,4 +15,5 @@ public interface DialogElement
 	 void setContext(Context context);
 	 void setActivity(Activity activity);
 	 void setBuilder(Builder builder);
+	 void setExtraObj(Object object);
 }
