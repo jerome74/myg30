@@ -60,8 +60,6 @@ public class MyGeoActivity extends Activity implements PreferenceCallBack {
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-	
-		NotifyBean.createEvent(UTIL_GEO.NB_MyGeoActivity, MyGeoActivity.this);
 		
 		iProxyView = new ProxyView(this, this);
 		iProxyView.init();

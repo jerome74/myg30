@@ -77,9 +77,9 @@ public class TitleBar extends LinearLayout implements OnClickListener {
 																	,mTitleView.getText().toString()
 																	,getType());
 						
-						message.arg1 = UTIL_GEO.NB_MyGeoActivity;
+						message.arg1 = UTIL_GEO.NB_newGeoMarkerInsert;
 						message.obj =ig30;
-						NotifyBean.notifyEvent(UTIL_GEO.NB_newGeoMarkerInsert, message);
+						NotifyBean.notifyEvent(UTIL_GEO.NB_MyGeoActivity, message);
 					}
 					else
 					{

@@ -69,9 +69,9 @@ ConnectionCallbacks, OnConnectionFailedListener, LocationListener
 	        bar.setTitle(R.string.title_mygeo_label_g30);
 	        bar.isGeo();
 	        
-	        if (CheckObj.check(getIntent().getStringExtra(UTIL_GEO.TYPE_MARKER), UTIL_GEO.STRING))
+	        if (CheckObj.check(getIntent().getStringExtra(UTIL_GEO.UPDATE_G30), UTIL_GEO.STRING))
 	        {
-	        	bar.setUpdateG30bean(getIntent().getStringExtra(UTIL_GEO.TYPE_MARKER));
+	        	bar.setUpdateG30bean(getIntent().getStringExtra(UTIL_GEO.UPDATE_G30));
 	        	redefine = true;
 	        }
 	        else
