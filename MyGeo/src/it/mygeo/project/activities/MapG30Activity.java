@@ -33,6 +33,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -66,17 +67,22 @@ ConnectionCallbacks, OnConnectionFailedListener, LocationListener
 	        setContentView(R.layout.g30);
 	        TitleBar bar = (TitleBar)findViewById(R.id.titleBar_g30);
 	        bar.setActivity(this);
-	        bar.setTitle(R.string.title_mygeo_label_g30);
 	        bar.isGeo();
 	        
 	        if (CheckObj.check(getIntent().getStringExtra(UTIL_GEO.UPDATE_G30), UTIL_GEO.STRING))
 	        {
 	        	bar.setUpdateG30bean(getIntent().getStringExtra(UTIL_GEO.UPDATE_G30));
+	        	bar.setTitle(bar.getG30bean().getTitle());
 	        	redefine = true;
 	        }
 	        else
+	        {
+	        	bar.setTitle(R.string.title_mygeo_label_g30);
 	        	redefine = false;
-	        	
+	        }
+	        
+	        
+	        
 	        setUpMapIfNeeded();
 	        setUpLocationClientIfNeeded();
 	        setUpMap();
@@ -155,14 +161,8 @@ ConnectionCallbacks, OnConnectionFailedListener, LocationListener
 				 	}
 				 		
 				 
-		    		CameraPosition cameraPosition = new CameraPosition.Builder()
-			    	   .target(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))      // Sets the center of the map to Mountain View
-			    	    .zoom(zoomLevel(getIntent().getIntExtra(UTIL_GEO.RANGE, 0)))                   // Sets the zoom
-			    	    .bearing(90)                // Sets the orientation of the camera to east
-			    	    .tilt(30)                   // Sets the tilt of the camera to 30 degrees
-			    	    .build();                   // Creates a CameraPosition from the builder
-			    	 mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-			    	 
+		    		
+			    	
 //			    	 Drawable marker=getResources().getDrawable(R.drawable.marker);
 //			    	 
 //			    	 marker.setBounds(0, 0, marker.getIntrinsicWidth(),
@@ -170,12 +170,35 @@ ConnectionCallbacks, OnConnectionFailedListener, LocationListener
 			    	 
 			    	 
 			    	 if(!redefine)
+			    	 {
+			    		 CameraPosition cameraPosition = new CameraPosition.Builder()
+				    	   .target(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))      // Sets the center of the map to Mountain View
+				    	   .zoom(zoomLevel(getIntent().getIntExtra(UTIL_GEO.RANGE, 0)))                   // Sets the zoom
+				    	   .bearing(90)                // Sets the orientation of the camera to east
+				    	   .tilt(30)                   // Sets the tilt of the camera to 30 degrees
+				    	   .build();                   // Creates a CameraPosition from the builder
+				    	 mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+			    		 
 			    		 createGeofence(myLocation.getLatitude(),myLocation.getLongitude(), false);
+			    	 }
 			    	 else
+			    	 {
+			    		 LatLngBounds bounds = new LatLngBounds.Builder().include(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))
+			                     .include(new LatLng(titleBar.getG30bean().getLatitude(), titleBar.getG30bean().getLongitude())).build();
+			    		 
+			    		 
+			    		 CameraPosition cameraPosition = new CameraPosition.Builder()
+				    	   .target(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))      // Sets the center of the map to Mountain View
+				    	   .zoom(zoomLevel(getIntent().getIntExtra(UTIL_GEO.RANGE, 0)))                   // Sets the zoom
+				    	   .bearing(90)                // Sets the orientation of the camera to east
+				    	   .tilt(30)                   // Sets the tilt of the camera to 30 degrees
+				    	   .build();                   // Creates a CameraPosition from the builder
+				    	 mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 400,400,0));
+				    	 mMap.setOnCameraChangeListener(null);
+			    		 
 			    		 createGeofence(titleBar.getG30bean().getLatitude(),titleBar.getG30bean().getLongitude(), false);
-			    	 
-			    	 
-			    	 
+			    		
+			    	 }
 		    	} 
 		}
 		

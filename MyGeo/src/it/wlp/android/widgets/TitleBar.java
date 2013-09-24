@@ -1,19 +1,16 @@
 package it.wlp.android.widgets;
 
-import java.util.UUID;
+import java.util.Iterator;
 
 import it.mygeo.project.R;
 import it.mygeo.project.activities.MapG30Activity;
-import it.mygeo.project.activities.MyGeoActivity;
 import it.mygeo.project.constants.UTIL_GEO;
 import it.mygeo.project.service.NotifyBean;
 import it.wlp.android.system.bean.G30Bean;
-import it.wlp.android.system.external.IG30;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Message;
-import android.text.Html.ImageGetter;
+import android.text.TextUtils;
 import android.text.TextUtils.StringSplitter;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -90,9 +87,9 @@ public class TitleBar extends LinearLayout implements OnClickListener {
 								,mTitleView.getText().toString()
 								,getType());
 						
-						message.arg1 = UTIL_GEO.NB_MyGeoActivity;
+						message.arg1 = UTIL_GEO.NB_newGeoMarkerUpdate;
 						message.obj =ig30;
-						NotifyBean.notifyEvent(UTIL_GEO.NB_newGeoMarkerUpdate, message);
+						NotifyBean.notifyEvent(UTIL_GEO.NB_MyGeoActivity, message);
 					}
 					
 					
@@ -115,6 +112,11 @@ public class TitleBar extends LinearLayout implements OnClickListener {
 	public void setTitle(int resid){
 		mTitleView.setText(resid);
 	}
+	
+	public void setTitle(String text){
+		mTitleView.setText(text);
+	}
+	
 	public Activity getActivity() {
 		return activity;
 	}
@@ -153,16 +155,19 @@ public class TitleBar extends LinearLayout implements OnClickListener {
 	}
 	public void setUpdateG30bean(String updateG30bean) 
 	{
-		String[] strG30bean =  updateG30bean.split("|");
+		TextUtils.StringSplitter splitter = new TextUtils.SimpleStringSplitter('|');
+		 // Once per string to split
+		 splitter.setString(updateG30bean);
+		 Iterator<String> iterator =  splitter.iterator();
 		
 		g30bean = new G30Bean();
 		
-		g30bean.setId(Integer.parseInt(strG30bean[0]));
-		g30bean.setMarker(Integer.parseInt(strG30bean[1]));
-		g30bean.setTitle(strG30bean[2]);
-		g30bean.setLatitude(Double.parseDouble(strG30bean[3]));
-		g30bean.setLongitude(Double.parseDouble(strG30bean[4]));
-		g30bean.setType(strG30bean[5]);
+		g30bean.setId(Integer.parseInt(iterator.next()));
+		g30bean.setMarker(Integer.parseInt(iterator.next()));
+		g30bean.setTitle(iterator.next());
+		g30bean.setLatitude(Double.parseDouble(iterator.next()));
+		g30bean.setLongitude(Double.parseDouble(iterator.next()));
+		g30bean.setType(iterator.next());
 		
 	}
 }
