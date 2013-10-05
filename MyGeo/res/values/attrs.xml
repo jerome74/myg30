@@ -13,6 +13,8 @@
 	<attr name="textCurrentActivityGreen" format="reference" />
 	<attr name="whiteBackground" format="reference" />
 	<attr name="button" format="reference" />
+	<attr name="buttonbk" format="reference" />
+	<attr name="buttonred" format="reference" />
 	<attr name="list" format="reference" />
 	<attr name="listItem" format="reference" />
 	<attr name="listDivider" format="reference" />

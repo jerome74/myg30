@@ -7,13 +7,13 @@
     <string name="insert">Insert</string>
     <string name="insert_on">Inserting</string>
     <string name="insert_off">Insert</string>
-    <string name="check_insert_on">search operation\nselected</string>
+    <string name="check_insert_on">insert now operation\nselected</string>
     
     
-    <string name="find">>Find</string>
-    <string name="find_on">Finding</string>
-    <string name="find_off">Find</string>
-    <string name="check_find_on">insert operation\nselected</string>
+    <string name="insert_now">Insert Now</string>
+    <string name="insert_now_on">Inserting Now</string>
+    <string name="insert_now_off">Insert Now</string>
+    <string name="check_insert_now_on">insert operation\nselected</string>
     
     <string name="mygeo_label_select">choose what to locate</string>
     <string name="title_mygeo_label_select">object</string>

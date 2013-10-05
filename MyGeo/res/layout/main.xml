@@ -30,7 +30,7 @@
 
                 <ToggleButton
                     android:id="@id/insertButton"
-                    style="?button"
+                    style="?buttonbk"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_weight="0.5"
@@ -40,13 +40,13 @@
 
                 <ToggleButton
                     android:id="@id/findButton"
-                    style="?button"
+                    style="?buttonred"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_weight="0.5"
-                    android:text="@string/find"
-                    android:textOff="@string/find_off"
-                    android:textOn="@string/find_on" />
+                    android:text="@string/insert_now"
+                    android:textOff="@string/insert_now"
+                    android:textOn="@string/insert_now" />
             </LinearLayout>
 
              <TextView

@@ -38,6 +38,8 @@
 		<item name="textCheckBox">@style/text_regular_bl</item>
 		<item name="whiteBackground">@style/white_background_bl</item>
 		<item name="button">@style/button_bl</item>
+		<item name="buttonbk">@style/button_bk</item>
+		<item name="buttonred">@style/button_red</item>
 		<item name="list">@style/list_bl</item>
 		<item name="listItem">@style/list_item_bl</item>
 		<item name="listDivider">@style/list_divider_bl</item>

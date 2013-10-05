@@ -64,7 +64,7 @@ public class ButtonSearchEvent implements Observer ,  PreferenceCallBack
 			{
 				
 				if(!(((ToggleButton)proxyView.getActivity().findViewById(R.id.insertButton)).getText()).equals(proxyView.getActivity().getString(R.string.insert_on))
-					&&	!(((ToggleButton)proxyView.getActivity().findViewById(R.id.findButton)).getText()).equals(proxyView.getActivity().getString(R.string.find_on))	)
+					&&	!(((ToggleButton)proxyView.getActivity().findViewById(R.id.findButton)).getText()).equals(proxyView.getActivity().getString(R.string.insert_now_on))	)
 				{
 					 toastHelperDomain.createToastMessage(R.string.check_search_button, R.drawable.stop);
 				}

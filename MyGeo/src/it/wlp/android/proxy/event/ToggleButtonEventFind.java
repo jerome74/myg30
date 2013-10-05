@@ -1,6 +1,8 @@
 package it.wlp.android.proxy.event;
 
 import it.mygeo.project.R;
+import it.mygeo.project.activities.MapG30Activity;
+import it.mygeo.project.activities.MapNowG30Activity;
 import it.mygeo.project.service.external.PreferenceCallBack;
 import it.wlp.android.proxy.domain.ProxyView;
 import it.wlp.android.toast.domain.ToastHelperDomain;
@@ -10,6 +12,7 @@ import it.wlp.android.toast.model.ToastHelper;
 import java.util.Observable;
 import java.util.Observer;
 
+import android.content.Intent;
 import android.os.Message;
 import android.view.View;
 import android.widget.ToggleButton;
@@ -52,12 +55,16 @@ public class ToggleButtonEventFind implements Observer ,  PreferenceCallBack
 			public void onClick(View arg0) 
 			{
 				
-				if((((ToggleButton)proxyView.getActivity().findViewById(R.id.insertButton)).getText()).equals(proxyView.getActivity().getString(R.string.insert_on)))
-				 {
-					 toastHelperDomain.createToastMessage(R.string.check_find_on, R.drawable.stop);
-					 toggleButton.setText(R.string.find_off);
-				 }
-				 
+//				if((((ToggleButton)proxyView.getActivity().findViewById(R.id.insertButton)).getText()).equals(proxyView.getActivity().getString(R.string.insert_on)))
+//				 {
+//					 toastHelperDomain.createToastMessage(R.string.check_insert_now_on, R.drawable.stop);
+//					 toggleButton.setText(R.string.insert_now_off);
+//				 }
+//				else
+//				{
+					Intent intent = new Intent(proxyView.getContext(), MapNowG30Activity.class);
+					proxyView.getContext().startActivity(intent);
+//				}
 			}
 	   };
 

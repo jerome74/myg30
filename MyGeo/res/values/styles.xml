@@ -98,6 +98,29 @@
 		<item name="android:paddingBottom">11sp</item>
 		
 	</style>
+	
+	<style name="button_bk">
+		<item name="android:background">@drawable/button_bk</item>-->
+		<item name="android:textColor">#FFF</item>
+		<item name="android:textSize">17sp</item>
+		<item name="android:textStyle">bold|italic</item>
+		<item name="android:layout_margin">3sp</item>
+		<item name="android:paddingTop">11sp</item>
+		<item name="android:paddingBottom">11sp</item>
+		
+	</style>
+	
+	<style name="button_red">
+		<item name="android:background">@drawable/button_red</item>-->
+		<item name="android:textColor">@color/btn_text_now</item>
+		<item name="android:textSize">17sp</item>
+		<item name="android:textStyle">bold|italic</item>
+		<item name="android:layout_margin">3sp</item>
+		<item name="android:paddingTop">11sp</item>
+		<item name="android:paddingBottom">11sp</item>
+		
+	</style>
+	
 	<style name="list_bl">
 		<item name="android:background">#000</item>
 		<item name="android:paddingTop">15sp</item>

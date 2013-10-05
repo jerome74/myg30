@@ -53,10 +53,28 @@ public class ToggleButtonEventInsert implements Observer ,  PreferenceCallBack
 			public void onClick(View arg0) 
 			{
 				
-				 if((((ToggleButton)proxyView.getActivity().findViewById(R.id.findButton)).getText()).equals(proxyView.getActivity().getString(R.string.find_on)))
-				 {
-					 toastHelperDomain.createToastMessage(R.string.check_insert_on, R.drawable.stop);
-					 toggleButton.setText(R.string.insert_off);
+//				 if((((ToggleButton)proxyView.getActivity().findViewById(R.id.findButton)).getText()).equals(proxyView.getActivity().getString(R.string.insert_now_on)))
+//				 {
+//					 toastHelperDomain.createToastMessage(R.string.check_insert_on, R.drawable.stop);
+//					 toggleButton.setText(R.string.insert_off);
+//				 }
+//				 else
+//				 {
+					 ToggleButton tb_insertNow = (ToggleButton)proxyView.getActivity().findViewById(R.id.findButton);
+					 
+					 switch (tb_insertNow.getVisibility()) 
+					 {
+					 	case View.GONE:
+					 		tb_insertNow.setVisibility(View.VISIBLE);
+					 	break;
+					 	
+					 	case View.VISIBLE:
+					 		tb_insertNow.setVisibility(View.GONE);
+						break;
+
+					 	default:
+						break;
+//					}
 				 }
 			}
 	   };

@@ -4,78 +4,84 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
- <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="16"/>
-    
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="16" />
+
     <permission
-    android:name="it.mygeo.project.permission.MAPS_RECEIVE"
-    android:protectionLevel="signature"/>
-    
-  		<uses-permission android:name="it.mygeo.project.permission.MAPS_RECEIVE"/> 
-      	<uses-permission android:name="android.permission.WAKE_LOCK"/>
-    	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-  		<uses-permission android:name="android.permission.INTERNET"/>
-      	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-      	<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
-      	<!-- External storage for caching. -->
-  		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-  		<!-- My Location -->
-  		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-  		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    
+        android:name="it.mygeo.project.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="it.mygeo.project.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <!-- External storage for caching. -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- My Location -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
+        android:hardwareAccelerated="true"
         android:icon="@drawable/internet"
-        android:label="@string/app_name" 
-        android:hardwareAccelerated="true">
-        
-         <meta-data
-      android:name="com.google.android.maps.v2.API_KEY"
-      android:value="AIzaSyCqJiKJfYxsQBb2BMcueJ5Z2vlvTG3PWjs"/>
-        
+        android:label="@string/app_name" >
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyCqJiKJfYxsQBb2BMcueJ5Z2vlvTG3PWjs" />
+
         <activity
-            android:name=".activities.SplashActivity"
+            android:name="it.mygeo.project.activities.SplashActivity"
             android:label="My G30"
             android:theme="@style/Theme.Blue" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-        
-       <activity
-             android:name=".activities.MapG30Activity"
-             android:theme="@style/NoTitleBarDialog" /> 
         <activity
-             android:name=".activities.ActivityListArray"
-             android:theme="@style/NoTitleBarDialog" />
-        
-         <activity
-             android:name=".activities.SeekActivity"
-             android:theme="@style/NoTitleBarDialog" />
-        
+            android:name="it.mygeo.project.activities.MapG30Activity"
+            android:theme="@style/NoTitleBarDialog" />
         <activity
-            android:name=".activities.MyGeoActivity"
-           android:theme="@style/Theme.Blue" />
+            android:name="it.mygeo.project.activities.ActivityListArray"
+            android:theme="@style/NoTitleBarDialog" />
         <activity
-            android:name=".activities.StylePreferenceActivity"
+            android:name="it.mygeo.project.activities.SeekActivity"
+            android:theme="@style/NoTitleBarDialog" />
+        <activity
+            android:name="it.mygeo.project.activities.MyGeoActivity"
             android:theme="@style/Theme.Blue" />
-        
-        <service android:exported="false" android:enabled="true" android:name=".service.domain.ConnService"></service>
-        <service android:exported="false" android:enabled="true" android:name=".service.ServiceManager"></service>
-  		
-        <service android:name=".service.domain.CatchToastService" >
+        <activity
+            android:name="it.mygeo.project.activities.StylePreferenceActivity"
+            android:theme="@style/Theme.Blue" />
+
+        <service
+            android:name="it.mygeo.project.service.domain.ConnService"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
+        <service
+            android:name="it.mygeo.project.service.ServiceManager"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
+        <service android:name="it.mygeo.project.service.domain.CatchToastService" >
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
         </service>
-        
-       <receiver android:name=".service.alert.signal.ConnAlarmSignal" android:process=":remote" />
-        
-       
-       
-    </application>
 
-   
+        <receiver
+            android:name="it.mygeo.project.service.alert.signal.ConnAlarmSignal"
+            android:process=":remote" />
+
+        <activity
+            android:name="it.mygeo.project.activities.MapNowG30Activity">
+        </activity>
+    </application>
 
 </manifest>
