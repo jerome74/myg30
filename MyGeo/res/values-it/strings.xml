@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">My G30</string>
     <string name="title_text">My G30</string>
-    <string name="subtitle_text">Geocalizzazione</string>
+    <string name="subtitle_text">Geolocalizzazione</string>
     
     <string name="insert">Inserire</string>
     <string name="insert_on">Inserisco</string>
@@ -61,8 +61,21 @@
 	<string name="b_ok_geo">ok</string>
 	<string name="b_insert_geo">chiudi</string>
 	
+	<string name="vx_not_valid">oggetto non valido</string>
+	<string name="vx_not_ok">riconoscimento fallito</string>
+	<string name="vx_error">errore</string>
+	<string name="vx_no_obj">nessun oggetto</string>
+	
+	<string name="extra_language">it-IT</string>
+	<string name="rec_lable_style">dire l\'oggetto da localizzare</string>
+	<string name="rec_lable_seek">dire la distanza per localizzare</string>
+	
 	<string name="m_no_starage">spiacenti!,\n\n impossibile salvare le informazioni, nessun memoria montata</string>
 	<string name="geo_position_on">attivare l\'accesso alla posizione</string>
 	<string name="geo_del_marker" formatted="false">vuoi cancellare \'%1$s\'?</string>
+	
+	<string name="marker">marker</string>
+	
+	<string name="no_service">servizio momentaneamente non disponibile</string>
 	
 </resources>

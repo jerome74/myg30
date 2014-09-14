@@ -8,5 +8,15 @@
         <item>Gym</item>
         <item>Kies</item>
     </string-array>
+    
+    <string-array name="geo_dist">
+        <item>cento metri</item>
+        <item>duecentocinquanta metri</item>
+        <item>cinquecento metri</item>
+        <item>un chilometro metri</item>
+        <item>tre chilometri</item>
+        <item>sette chilometri</item>
+        <item>quindici chilometri</item>
+    </string-array>
 
 </resources>

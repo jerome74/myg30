@@ -36,18 +36,13 @@ public class Themes extends Activity implements OnClickListener
 	@Override
 	public void onClick(View v)
 	{
-		switch (v.getId())
-		{
-		case R.id.button1:
+		
+		if (v.getId() ==  R.id.button1)
 			Utils.changeToTheme(this, Utils.THEME_DEFAULT);
-			break;
-		case R.id.button2:
+		else if (v.getId() ==  R.id.button2)
 			Utils.changeToTheme(this, Utils.THEME_WHITE);
-			break;
-		case R.id.button3:
+		else if (v.getId() ==  R.id.button3)
 			Utils.changeToTheme(this, Utils.THEME_BLUE);
-			break;
-		}
 
 	}
 

@@ -22,6 +22,7 @@ import android.os.Bundle;
 import android.os.Message;
 import android.support.v4.app.FragmentActivity;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient.ConnectionCallbacks;
@@ -63,7 +64,9 @@ ConnectionCallbacks
 	}
 
 	@Override
-	public void onConnected(Bundle paramBundle) {mLocationClient.requestLocationUpdates(
+	public void onConnected(Bundle paramBundle) 
+	{
+		mLocationClient.requestLocationUpdates(
 	        REQUEST,
 	        this);  // LocationListener
  
@@ -86,31 +89,39 @@ ConnectionCallbacks
 				List<Address> addresses = null;
 				try {
 					addresses = geocoder.getFromLocation(myLocation.getLatitude(), myLocation.getLongitude(), 1);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				} 
+				catch (IOException e) 
+				{
+					runOnUiThread(new Runnable() {
+						public void run() {
+							Toast.makeText(MapNowG30Activity.this, R.string.no_service,
+									Toast.LENGTH_SHORT).show();
+						}
+					});
 				}
-			 	
-			 	Message message = new Message();
-				String strCM =String.valueOf(System.currentTimeMillis());
 				
-				//1) Street Address 2) City / State 3) Zip 4) Complete Address
-				String address = addresses.get(0).getAddressLine(0);
-				String city = addresses.get(0).getAddressLine(1);
-				String country = addresses.get(0).getAddressLine(2);
-				
-				int ID =  Integer.parseInt(strCM.substring( strCM.length() - 9 )) ;
-				G30Bean ig30 = new G30Bean(ID
-															,R.drawable.marker
-															,myLocation.getLongitude()
-															,myLocation.getLatitude()	
-															,address
-															,"maker");
-				
-				message.arg1 = UTIL_GEO.NB_newGeoMarkerInsert;
-				message.obj =ig30;
-				NotifyBean.notifyEvent(UTIL_GEO.NB_MyGeoActivity, message);
-				
+			 	if(addresses != null)
+			 	{
+				 	Message message = new Message();
+					String strCM =String.valueOf(System.currentTimeMillis());
+					
+					//1) Street Address 2) City / State 3) Zip 4) Complete Address
+					String address = addresses.get(0).getAddressLine(0);
+					String city = addresses.get(0).getAddressLine(1);
+					String country = addresses.get(0).getAddressLine(2);
+					
+					int ID =  Integer.parseInt(strCM.substring( strCM.length() - 9 )) ;
+					G30Bean ig30 = new G30Bean(ID
+																,R.drawable.marker
+																,myLocation.getLongitude()
+																,myLocation.getLatitude()	
+																,address
+																,getString(R.string.marker));
+					
+					message.arg1 = UTIL_GEO.NB_newGeoMarkerInsert;
+					message.obj =ig30;
+					NotifyBean.notifyEvent(UTIL_GEO.NB_MyGeoActivity, message);
+			 	}
 				finish();
 				
 		 }

@@ -1,6 +1,6 @@
 package it.wlp.android.map;
 
-import it.mygeo.project.activities.MapG30Activity;
+import it.mygeo.project.activities.MapStartG30Activity;
 import android.support.v4.app.FragmentActivity;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -36,8 +36,8 @@ public class G30MarkerDragListener implements OnMarkerDragListener
 	  double dragLat = dragPosition.latitude;
 	  double dragLong = dragPosition.longitude;
 	  mMap.clear();
-	  if(activity instanceof MapG30Activity)
-		((MapG30Activity)activity).createGeofence(dragLat, dragLong, true);
+	  if(activity instanceof MapStartG30Activity)
+		((MapStartG30Activity)activity).createGeofence(dragLat, dragLong, true);
 
 	 }
 	 @Override

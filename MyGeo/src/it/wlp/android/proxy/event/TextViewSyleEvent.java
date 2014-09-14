@@ -28,6 +28,8 @@ public class TextViewSyleEvent implements Observer  ,  PreferenceCallBack
 		public void onClick(View arg0) 
 		{
 			Intent intent = new Intent(proxyView.getContext(), ActivityListArray.class);
+			if(textView.getText() != null && textView.getText().toString().trim().length() > 0)
+				intent.putExtra(UTIL_GEO.VALUE_SEEK, textView.getText().toString());
 			proxyView.getContext().startActivity(intent);
 			
 		}

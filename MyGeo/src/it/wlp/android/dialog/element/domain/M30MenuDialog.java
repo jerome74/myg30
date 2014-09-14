@@ -51,6 +51,10 @@ public class M30MenuDialog implements DialogElement {
 		final Button b_no = (Button)view.findViewById(R.id.b_insert_desc);
 		et = (EditText)view.findViewById(R.id.et_desc_g30);
 		
+		if(!((TextView) textView).getText().equals(activity.getString(R.string.title_mygeo_label_g30)))
+			et.setText(((TextView) textView).getText());
+		
+		
 
 		b_no.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) 

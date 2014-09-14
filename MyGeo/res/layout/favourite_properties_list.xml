@@ -10,8 +10,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-        <it.wlp.android.widgets.TitleBar
-            android:id="@id/titleBar"
+        <it.wlp.android.widgets.TitleBarSimple
+            android:id="@+id/titleBarSimple"
             style="@style/TitleBar_st"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" />

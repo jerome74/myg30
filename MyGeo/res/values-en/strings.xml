@@ -62,8 +62,20 @@
 	<string name="b_ok_geo">ok</string>
 	<string name="b_insert_geo">close</string>
 	
+	<string name="vx_not_valid">objec not valid</string>
+	<string name="vx_not_ok">recognized failed</string>
+	<string name="vx_error">error</string>
+	<string name="vx_no_obj">any object</string>
+	
+	<string name="extra_language">en-US</string>
+	<string name="rec_lable_style">say object to localize</string>
+	<string name="rec_lable_seek">say distance for localization</string>
+	
 	<string name="m_no_starage">sorry!,\n\n impossible to save the information, there is no storage mount</string>
 	<string name="geo_position_on">activate access on the position</string>
 	<string name="geo_del_marker" formatted="false">do really want delete \'%1$s\'?</string>
 	
+	<string name="marker">marker</string>
+	
+	<string name="no_service">service temporarily unavailable</string>
 </resources>

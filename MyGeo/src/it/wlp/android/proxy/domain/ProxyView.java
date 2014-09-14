@@ -8,6 +8,8 @@ import it.wlp.android.proxy.event.TextViewSeekEvent;
 import it.wlp.android.proxy.event.TextViewSyleEvent;
 import it.wlp.android.proxy.event.ToggleButtonEventFind;
 import it.wlp.android.proxy.event.ToggleButtonEventInsert;
+import it.wlp.android.proxy.event.VoiceSeekEvent;
+import it.wlp.android.proxy.event.VoiceStyleEvent;
 import it.wlp.android.proxy.external.IProxyView;
 
 import java.util.Observable;
@@ -37,6 +39,8 @@ public class ProxyView extends Observable implements IProxyView
 		addObserver(new ToggleButtonEventFind(activity.findViewById(R.id.findButton)));
 		addObserver(new ButtonSearchEvent(activity.findViewById(R.id.searchPropertiesButton)));
 		addObserver(new MarkerFileEvent(activity.findViewById(R.id.hidden_LinearLayout)));
+		addObserver(new VoiceStyleEvent(activity.findViewById(R.id.value_style_voice),activity.findViewById(R.id.value_style)));
+		addObserver(new VoiceSeekEvent(activity.findViewById(R.id.value_seek_voice),activity.findViewById(R.id.value_seek)));
 		addObserver(new ConnetionEvent());
 
 		setChanged();

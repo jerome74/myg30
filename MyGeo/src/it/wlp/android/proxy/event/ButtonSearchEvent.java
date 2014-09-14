@@ -5,8 +5,9 @@ import static it.mygeo.project.constants.UTIL_GEO.POST_LABEL_DIST_KMS;
 import static it.mygeo.project.constants.UTIL_GEO.POST_LABEL_DIST_METRS;
 import static it.mygeo.project.constants.UTIL_GEO.PRE_LABEL_DIST;
 import it.mygeo.project.R;
-import it.mygeo.project.activities.MapG30Activity;
+import it.mygeo.project.activities.MapStartG30Activity;
 import it.mygeo.project.activities.MyGeoActivity;
+import it.mygeo.project.activities.SummaryMapActivity;
 import it.mygeo.project.constants.UTIL_GEO;
 import it.mygeo.project.service.NotifyBean;
 import it.mygeo.project.service.external.PreferenceCallBack;
@@ -80,7 +81,8 @@ public class ButtonSearchEvent implements Observer ,  PreferenceCallBack
 				}
 				else
 				{
-					Intent intent = new Intent(proxyView.getContext(), MapG30Activity.class);
+					Class class1 = MapStartG30Activity.class;
+					Intent intent = new Intent(proxyView.getContext(), class1);
 					TextView textViewDistance = (TextView)proxyView.getActivity().findViewById(R.id.value_seek);
 					CharSequence distance = textViewDistance.getText();
 					int range = widthInPixels(distance.toString());

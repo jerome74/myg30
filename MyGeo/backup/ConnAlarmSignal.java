@@ -1,6 +1,7 @@
 package it.mygeo.project.service.alert.signal;
 
 import it.mygeo.project.R;
+import it.mygeo.project.activities.MapNowG30Activity;
 import it.mygeo.project.constants.SERVICES;
 import it.mygeo.project.service.NotifyBean;
 import it.wlp.android.toast.domain.ToastHelperDomain;
@@ -13,6 +14,7 @@ import android.net.ConnectivityManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 public class ConnAlarmSignal extends BroadcastReceiver {
 
@@ -28,12 +30,11 @@ public class ConnAlarmSignal extends BroadcastReceiver {
 		 final ConnectivityManager connMgr 		= (ConnectivityManager) paramContext.getSystemService(Context.CONNECTIVITY_SERVICE);
 		 final android.net.NetworkInfo wifi 		= connMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 		 final android.net.NetworkInfo mobile 	= connMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-		 
-		 final IToastHelper iToastHelper 						= new ToastHelper(paramContext);
-		 final ToastHelperDomain toastHelperDomain 	= new ToastHelperDomain(iToastHelper);
 
 		if (wifi.isAvailable() && wifi.isConnectedOrConnecting()) 
 		{	
+			Toast.makeText(MapNowG30Activity.this, R.string.wifi,
+					Toast.LENGTH_SHORT).show();
 		    toastHelperDomain.createToastMessage(R.string.wifi, R.drawable.go);
 			
 //		    progressBar.setVisibility(View.GONE);

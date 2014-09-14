@@ -1,17 +1,17 @@
 package it.wlp.android.widgets;
 
-import java.util.Iterator;
-
 import it.mygeo.project.R;
-import it.mygeo.project.activities.MapG30Activity;
+import it.mygeo.project.activities.MapStartG30Activity;
 import it.mygeo.project.constants.UTIL_GEO;
 import it.mygeo.project.service.NotifyBean;
 import it.wlp.android.system.bean.G30Bean;
+
+import java.util.Iterator;
+
 import android.app.Activity;
 import android.content.Context;
 import android.os.Message;
 import android.text.TextUtils;
-import android.text.TextUtils.StringSplitter;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,11 +54,10 @@ public class TitleBar extends LinearLayout implements OnClickListener {
 		mBackBtn.setOnClickListener(this);
 	}
 	public void onClick(View v) {
-		switch (v.getId()) {
-			case R.id.title_power:
+		if (v.getId() ==  R.id.title_power)
 				activity.finish();
-				break;
-			case R.id.title_confirm: 
+		else if (v.getId() ==  R.id.title_confirm)
+		{
 				if (isGeo) 
 				{
 					Message message = new Message();
@@ -69,8 +68,8 @@ public class TitleBar extends LinearLayout implements OnClickListener {
 						int ID =  Integer.parseInt(strCM.substring( strCM.length() - 9 )) ;
 						G30Bean ig30 = new G30Bean(ID
 																	,getMarker()
-																	,((MapG30Activity)activity).getLongitude()
-																	,((MapG30Activity)activity).getLatitude()
+																	,((MapStartG30Activity)activity).getLongitude()
+																	,((MapStartG30Activity)activity).getLatitude()
 																	,mTitleView.getText().toString()
 																	,getType());
 						
@@ -82,8 +81,8 @@ public class TitleBar extends LinearLayout implements OnClickListener {
 					{
 						G30Bean ig30 = new G30Bean(getG30bean().getId()
 								,getG30bean().getMarker()
-								,((MapG30Activity)activity).getLongitude()
-								,((MapG30Activity)activity).getLatitude()
+								,((MapStartG30Activity)activity).getLongitude()
+								,((MapStartG30Activity)activity).getLatitude()
 								,mTitleView.getText().toString()
 								,getType());
 						
@@ -95,10 +94,7 @@ public class TitleBar extends LinearLayout implements OnClickListener {
 					
 				}
 				activity.finish();
-				break;
-			default:
-				break;
-		}
+			}
 	}
 	
 	public Button getBackButton(){

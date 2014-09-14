@@ -1,7 +1,5 @@
 package it.wlp.android.proxy.event;
 
-import it.mygeo.project.R;
-import it.mygeo.project.activities.MapG30Activity;
 import it.mygeo.project.activities.MapNowG30Activity;
 import it.mygeo.project.service.external.PreferenceCallBack;
 import it.wlp.android.proxy.domain.ProxyView;

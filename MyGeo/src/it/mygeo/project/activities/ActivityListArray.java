@@ -5,6 +5,7 @@ import it.mygeo.project.constants.UTIL_GEO;
 import it.mygeo.project.service.NotifyBean;
 import it.wlp.android.widgets.ArrayListFragment;
 import it.wlp.android.widgets.TitleBar;
+import it.wlp.android.widgets.TitleBarSimple;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Message;
@@ -20,7 +21,7 @@ public class ActivityListArray extends Activity {
         super.onCreate(savedInstanceState);
         
         setContentView(R.layout.favourite_properties_list);
-        TitleBar bar = (TitleBar)findViewById(R.id.titleBar);
+        TitleBarSimple bar = (TitleBarSimple)findViewById(R.id.titleBarSimple);
         bar.setActivity(this);
         bar.setTitle(R.string.title_mygeo_label_select);
         

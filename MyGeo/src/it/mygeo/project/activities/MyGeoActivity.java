@@ -251,6 +251,9 @@ public class MyGeoActivity extends Activity implements PreferenceCallBack {
             	hiddenLinearLayout.addView(hiddenInnerLinearLayout);
 			}
 			
+			NotifyBean.removeElementsC_G30Bean(UTIL_GEO.NB_GeoMarkerList);
+			NotifyBean.addElementsC_G30Bean(UTIL_GEO.NB_GeoMarkerList, containerG30Bean);
+			
 			if(CheckObj.check(containerG30Bean.g30Beans, UTIL_GEO.LIST))
 			{
 				hiddenLinearLayout.setVisibility(hiddenLinearLayout.VISIBLE);
@@ -377,7 +380,7 @@ public class MyGeoActivity extends Activity implements PreferenceCallBack {
 				{
 					if(g30Bean.getId() == localId)
 					{
-						Intent intent = new Intent(MyGeoActivity.this, MapG30Activity.class);
+						Intent intent = new Intent(MyGeoActivity.this, MapStartG30Activity.class);
 						int range = 1000;
 						
 						intent.putExtra(UTIL_GEO.RANGE, range);

@@ -8,5 +8,15 @@
         <item>Palestra</item>
         <item>Chiavi</item>
     </string-array>
+    
+    <string-array name="geo_dist">
+        <item>100 metri</item>
+        <item>250 metri</item>
+        <item>500 metri</item>
+        <item>un chilometro</item>
+        <item>3 chilometri</item>
+        <item>7 chilometri</item>
+        <item>15 chilometri</item>
+    </string-array>
 
 </resources>
